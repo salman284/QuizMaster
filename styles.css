@@ -8,14 +8,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(45deg, 
-        #ff6b6b 0%, 
-        #4ecdc4 15%, 
-        #45b7d1 30%, 
-        #96ceb4 45%, 
-        #ffeaa7 60%, 
-        #fd79a8 75%, 
-        #fdcb6e 90%, 
-        #6c5ce7 100%);
+        #1a1a2e 0%, 
+        #16213e 15%, 
+        #0f3460 30%, 
+        #533483 45%, 
+        #1a1a2e 60%, 
+        #7209b7 75%, 
+        #2d1b69 90%, 
+        #0f3460 100%);
     background-size: 800% 800%;
     animation: gradientShift 25s ease infinite;
     min-height: 100vh;
@@ -44,12 +44,12 @@ body::after {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 40% 80%, rgba(69, 183, 209, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(150, 206, 180, 0.3) 0%, transparent 35%),
-        radial-gradient(circle at 10% 30%, rgba(255, 234, 167, 0.3) 0%, transparent 35%),
-        radial-gradient(circle at 90% 80%, rgba(253, 121, 168, 0.4) 0%, transparent 40%);
+        radial-gradient(circle at 20% 50%, rgba(114, 9, 183, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(15, 52, 96, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(83, 52, 131, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(45, 27, 105, 0.3) 0%, transparent 35%),
+        radial-gradient(circle at 10% 30%, rgba(26, 26, 46, 0.3) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(22, 33, 62, 0.4) 0%, transparent 40%);
     animation: floatingOrbs 30s ease-in-out infinite;
     pointer-events: none;
     z-index: -1;
@@ -178,7 +178,7 @@ body::after {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #6c5ce7 75%, #fd79a8 100%);
+    background: linear-gradient(135deg, #7209b7 0%, #533483 25%, #0f3460 50%, #2d1b69 75%, #1a1a2e 100%);
     background-size: 300% 300%;
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -186,7 +186,7 @@ body::after {
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 45px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 15px 45px rgba(114, 9, 183, 0.6);
     background-position: right center;
 }
 
@@ -258,13 +258,13 @@ body::after {
 
 .quiz-icon {
     font-size: 5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #7209b7 0%, #0f3460 50%, #533483 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1.5rem;
     animation: pulse 2s ease-in-out infinite alternate;
-    text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+    text-shadow: 0 0 30px rgba(114, 9, 183, 0.5);
 }
 
 @keyframes pulse {
@@ -380,7 +380,7 @@ body::after {
 }
 
 .setting-group select option {
-    background: #667eea !important;
+    background: #7209b7 !important;
     color: white !important;
     padding: 12px 16px !important;
     font-weight: 600 !important;
@@ -398,7 +398,7 @@ body::after {
 }
 
 .setting-group select option:hover {
-    background: #764ba2 !important;
+    background: #533483 !important;
     color: white !important;
     transform: none !important;
     box-shadow: none !important;
@@ -439,12 +439,12 @@ body::after {
 }
 
 .setting-group select::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+    background: linear-gradient(135deg, rgba(114, 9, 183, 0.8), rgba(83, 52, 131, 0.8));
     border-radius: 4px;
 }
 
 .setting-group select::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, rgba(118, 75, 162, 0.9), rgba(240, 147, 251, 0.9));
+    background: linear-gradient(135deg, rgba(83, 52, 131, 0.9), rgba(15, 52, 96, 0.9));
 }
 
 /* Style the dropdown when opened */
@@ -597,7 +597,7 @@ body::after {
     width: 50px;
     height: 50px;
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #667eea;
+    border-top: 4px solid #7209b7;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 1rem;
@@ -664,12 +664,12 @@ body::after {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #7209b7 0%, #533483 50%, #0f3460 100%);
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 0 20px rgba(114, 9, 183, 0.6);
 }
 
 .progress-fill::after {
@@ -751,7 +751,7 @@ body::after {
 .question-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #fd79a8 75%, #ffeaa7 100%);
+    background: linear-gradient(135deg, #7209b7 0%, #533483 25%, #0f3460 50%, #2d1b69 75%, #1a1a2e 100%);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -760,7 +760,7 @@ body::after {
     font-weight: 700;
     font-size: 1.4rem;
     margin: 0 auto 2rem;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 10px 30px rgba(114, 9, 183, 0.5);
     border: 3px solid rgba(255, 255, 255, 0.2);
     animation: questionAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -865,7 +865,7 @@ body::after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(114, 9, 183, 0.2), transparent);
     transition: left 0.6s;
 }
 
@@ -874,32 +874,35 @@ body::after {
 }
 
 .answer-btn:hover:not(.disabled) {
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.15);
+    border-color: #7209b7;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(114, 9, 183, 0.25), 
+                0 8px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.98);
 }
 
 .answer-letter {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #7209b7, #533483);
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     color: white;
     flex-shrink: 0;
-    font-size: 1.2rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    border: none;
     transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(114, 9, 183, 0.4);
 }
 
 .answer-btn:hover:not(.disabled) .answer-letter {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
-    transform: scale(1.1);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #533483, #0f3460);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(114, 9, 183, 0.6);
 }
 
 .answer-btn.correct {
