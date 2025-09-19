@@ -1,4 +1,4 @@
-// Quiz Application JavaScript
+// QuizMaster Application JavaScript
 class QuizApp {
     constructor() {
         this.questions = [];
