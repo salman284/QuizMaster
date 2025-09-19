@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="container">
+            <div class="quiz-header">
+                <i class="fas fa-brain quiz-icon"></i>
+                <h1>Online Quiz Challenge</h1>
+                <p>Test your knowledge with random questions from various categories!</p>
+            </div>
+            
+            <div class="quiz-settings">
+                <div class="setting-group" data-type="questions">
+                    <label for="num-questions">
+                        <i class="fas fa-list-ol"></i>
+                        Number of Questions:
+                    </label>
+                    <select id="num-questions">
+                        <option value="5">5 Questions</option>
+                        <option value="10" selected>10 Questions</option>
+                        <option value="15">15 Questions</option>
+                        <option value="20">20 Questions</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group" data-type="difficulty">
+                    <label for="difficulty">
+                        <i class="fas fa-chart-line"></i>
+                        Difficulty:
+                    </label>
+                    <select id="difficulty">
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group" data-type="category">
+                    <label for="category">
+                        <i class="fas fa-tags"></i>
+                        Category:
+                    </label>
+                    <select id="category">
+                        <option value="">Any Category</option>
+                        <option value="9">General Knowledge</option>
+                        <option value="17">Science & Nature</option>
+                        <option value="18">Computers</option>
+                        <option value="19">Mathematics</option>
+                        <option value="21">Sports</option>
+                        <option value="22">Geography</option>
+                        <option value="23">History</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group" data-type="timer">
+                    <label for="time-per-question">
+                        <i class="fas fa-clock"></i>
+                        Time per Question:
+                    </label>
+                    <select id="time-per-question">
+                        <option value="15">15 seconds</option>
+                        <option value="30" selected>30 seconds</option>
+                        <option value="45">45 seconds</option>
+                        <option value="60">60 seconds</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="start-btn" class="btn btn-primary">
+                <i class="fas fa-play"></i>
+                Start Quiz
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <div class="container">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h2>Preparing Your Quiz...</h2>
+                <p>Fetching questions from Open Trivia Database</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+        <div class="container">
+            <!-- Quiz Header -->
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div class="quiz-info">
+                    <span id="question-counter">Question 1 of 10</span>
+                    <div class="timer-container">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer">30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Container -->
+            <div class="question-container">
+                <div class="question-number">
+                    <span id="q-number">1</span>
+                </div>
+                <h2 id="question-text">Loading question...</h2>
+                <div class="question-category">
+                    <span id="question-category"></span>
+                    <span id="question-difficulty" class="difficulty-badge"></span>
+                </div>
+            </div>
+
+            <!-- Answer Options -->
+            <div class="answers-container">
+                <button class="answer-btn" data-index="0">
+                    <span class="answer-letter">A</span>
+                    <span class="answer-text"></span>
+                </button>
+                <button class="answer-btn" data-index="1">
+                    <span class="answer-letter">B</span>
+                    <span class="answer-text"></span>
+                </button>
+                <button class="answer-btn" data-index="2">
+                    <span class="answer-letter">C</span>
+                    <span class="answer-text"></span>
+                </button>
+                <button class="answer-btn" data-index="3">
+                    <span class="answer-letter">D</span>
+                    <span class="answer-text"></span>
+                </button>
+            </div>
+
+            <!-- Feedback Container -->
+            <div id="feedback-container" class="feedback-container">
+                <div class="feedback-content">
+                    <div class="feedback-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="feedback-text">
+                        <h3 id="feedback-title">Correct!</h3>
+                        <p id="feedback-message">Great job! You got it right.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Controls -->
+            <div class="quiz-controls">
+                <button id="next-btn" class="btn btn-secondary" style="display: none;">
+                    Next Question
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container">
+            <div class="results-header">
+                <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h1>Quiz Complete!</h1>
+                <div class="score-display">
+                    <span id="final-score">0</span>
+                    <span class="score-divider">/</span>
+                    <span id="total-questions">10</span>
+                </div>
+                <div class="score-percentage">
+                    <span id="score-percentage">0%</span>
+                </div>
+            </div>
+
+            <div class="results-details">
+                <div class="result-stat">
+                    <div class="stat-icon correct">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="correct-answers">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                </div>
+                
+                <div class="result-stat">
+                    <div class="stat-icon incorrect">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="incorrect-answers">0</span>
+                        <span class="stat-label">Incorrect</span>
+                    </div>
+                </div>
+                
+                <div class="result-stat">
+                    <div class="stat-icon skipped">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="skipped-answers">0</span>
+                        <span class="stat-label">Time Out</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="performance-message">
+                <h3 id="performance-title">Excellent!</h3>
+                <p id="performance-description">You demonstrated great knowledge!</p>
+            </div>
+
+            <div class="results-actions">
+                <button id="restart-btn" class="btn btn-primary">
+                    <i class="fas fa-redo"></i>
+                    Take Another Quiz
+                </button>
+                <button id="review-btn" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i>
+                    Review Answers
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Screen -->
+    <div id="review-screen" class="screen">
+        <div class="container">
+            <div class="review-header">
+                <h1>Review Your Answers</h1>
+                <button id="back-to-results" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Results
+                </button>
+            </div>
+            
+            <div id="review-questions" class="review-questions">
+                <!-- Review questions will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
